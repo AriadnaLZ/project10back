@@ -28,7 +28,7 @@ const register = async (req, res, next) => {
       return res.status(400).json('Usuario ya existente')
     }
     const password = req.body.password
-    if (password.length -1 < 6 || password.length -1 > 10 ){
+    if (password.length < 6 || password.length > 10 ){
       return res.status(400).json('La contraseña debe tener entre 6 y 10 caracteres')
     }
     const emailDuplicated = await User.findOne({email: req.body.email})
